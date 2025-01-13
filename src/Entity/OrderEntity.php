@@ -97,8 +97,6 @@ class OrderEntity extends Entity {
   public function __construct() {
     // @TODO řešit přes attribut, aby nebylo nutné vždy řešit v konstruktoru
     $this->receivedDateTime = new \DateTime();
-
-    $this->priceTotal = 4839.1431423;
   }
 
 
