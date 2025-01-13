@@ -9,7 +9,6 @@
         }
     },
     "scripts": {
-        "app": "php -S localhost:8000"
     },
     "require": {
         "php": "^8.2",
