@@ -18,7 +18,7 @@ class XMLBuilder extends \DOMDocument {
   }
 
   
-  public function addData(string|int|float $name, mixed $data = null, array $attributes = [], \DOMElement $ParentNode = null): \DOMElement {
+  public function addData(string|int|float $name, mixed $data = null, array $attributes = [], ?\DOMElement $ParentNode = null): \DOMElement {
     $nodeName = is_string($name) ? $name : $this->defaultNodeName;
     $nodeName = preg_replace('~\s+~u', "", $nodeName);
 

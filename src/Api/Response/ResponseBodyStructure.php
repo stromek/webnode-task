@@ -13,7 +13,7 @@ class ResponseBodyStructure {
   private mixed $payload;
 
 
-  public function __construct(int $errCode = null, string $errMessage = null, mixed $responsePayload = null) {
+  public function __construct(?int $errCode = null, ?string $errMessage = null, mixed $responsePayload = null) {
     $this->errCode = $errCode;
     $this->errMessage = $errMessage;
     $this->payload = $responsePayload;

@@ -32,7 +32,7 @@ class ResponseFactory {
   }
 
 
-  public function createFromException(\Exception $Exception, StatusCodeEnum $statusCodeEnum = null): ResponseInterface {
+  public function createFromException(\Exception $Exception, ?StatusCodeEnum $statusCodeEnum = null): ResponseInterface {
     $Filter = $this->createResponseFilter();
 
     if(is_null($statusCodeEnum) AND $Exception instanceof \App\Interface\AppErrorInterface) {

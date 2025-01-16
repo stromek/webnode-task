@@ -15,7 +15,7 @@ abstract class AppEnv {
   private static array $environmentValues;
 
 
-  public static function get(string $key = null): string|array {
+  public static function get(?string $key = null): string|array {
     self::lazyLoad();
 
     if(is_null($key)) {

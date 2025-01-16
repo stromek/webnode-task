@@ -79,7 +79,7 @@ class Router {
   }
 
 
-  public function findRouteByRequest(RequestInterface $Request = null): ?Route {
+  public function findRouteByRequest(?RequestInterface $Request = null): ?Route {
     $Request ??= $this->request;
 
     foreach($this->routes as $Route) {
