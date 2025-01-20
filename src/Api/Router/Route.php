@@ -75,10 +75,10 @@ class Route {
       $name = preg_quote($matches[1], "~");
       $pattern = $matches[2];
 
-      return "(?P<$name>$pattern)";
+      return "(?P<{$name}>{$pattern})";
     }, $url);
 
-    return "~^".$regex."$~";
+    return "~^{$regex}$~";
   }
 
 }
