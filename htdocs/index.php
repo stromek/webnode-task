@@ -21,6 +21,9 @@ Debugger::$strictMode = true;
 //Debugger::enable(Debugger::Production);
 Debugger::enable(Debugger::Development);
 
+function vd(): void {
+  Debugger::dump(func_get_args());
+}
 
 $Container = \App\Factory\ContainerFactory::create();
 
