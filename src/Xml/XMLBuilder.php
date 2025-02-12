@@ -32,9 +32,9 @@ class XMLBuilder extends \DOMDocument {
 
 
       case is_iterable($data):
-        $Node = parent::createElement($nodeName);
+        $Node = $this->createElement($nodeName);
         foreach ($data as $key => $value) {
-          if(is_numeric($key) || is_numeric(substr($key, 0, 1))) {
+          if(is_numeric($key)) {
         		$this->addData($this->defaultNodeName, $value, ["id" => $key], $Node);
         	}else {
             $this->addData($key, $value, [], $Node);
@@ -48,9 +48,11 @@ class XMLBuilder extends \DOMDocument {
 
 
       default:
-        $Node = parent::createElement($nodeName);
+        $Node = $this->createElement($nodeName);
         if(!is_null($data)) {
-          $Node->appendChild(parent::createTextNode($data));
+          $Node->appendChild($this->createTextNode($data));
+        }else if(isset($this->rootElement)) {
+          $this->appendAttributes($Node, ["null" => null]);
         }
     }
 
@@ -81,6 +83,7 @@ class XMLBuilder extends \DOMDocument {
       throw new \RuntimeException("Error ".libxml_get_last_error()->message." while loading xsl template");
     }
 
+
     $XSLT = new \XSLTProcessor();
     $XSLT->registerPHPFunctions();
     $XSLT->importStylesheet($XSL);
@@ -95,7 +98,6 @@ class XMLBuilder extends \DOMDocument {
   }
 
 
-
   public function __toString(): string {
     return $this->saveXML();
   }
@@ -103,10 +105,10 @@ class XMLBuilder extends \DOMDocument {
 
   private function appendAttributes(\DOMElement $Node, array $attributes = []): void {
     foreach ($attributes as $name => $value) {
-      $attribute = parent::createAttribute($name);
+      $attribute = $this->createAttribute($name);
       $Node->appendChild($attribute);
 
-      $textNode = parent::createTextNode($value);
+      $textNode = $this->createTextNode($value ?? "");
       $attribute->appendChild($textNode);
     }
   }
