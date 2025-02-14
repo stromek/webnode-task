@@ -1,6 +1,7 @@
 .idea
 .env
-
+.todo
+.serverless/
 
 
 # Dependencies

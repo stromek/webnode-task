@@ -1,31 +1,33 @@
 {
-    "name": "petrb/webnode",
+    "name": "stromek/webnode",
     "type": "project",
-    "authors": [
-    ],
+    "require": {
+        "bref/bref": "^2.3",
+        "php": "^8.2",
+        "tracy/tracy": "^2.10",
+        "php-di/php-di": "^7.0",
+        "guzzlehttp/psr7": "^2.7",
+        "dibi/dibi": "^5.0",
+        "fakerphp/faker": "^1.24",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    },
     "autoload": {
         "psr-4": {
             "App\\": "src/"
         }
     },
-    "scripts": {
-    },
-    "require": {
-        "php": "^8.2",
-        "tracy/tracy": "^2.10",
-        "dibi/dibi": "^5.0",
-        "vlucas/phpdotenv": "^5.6",
-        "elasticsearch/elasticsearch": "^8.17",
-        "php-di/php-di": "^7.0",
-        "guzzlehttp/psr7": "^2.7",
-        "fakerphp/faker": "^1.24"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^11.5"
-    },
     "config": {
         "allow-plugins": {
             "php-http/discovery": true
         }
-    }
+    },
+    "authors": [
+        {
+            "name": "stromek",
+            "email": "petr.biza@gmail.com"
+        }
+    ]
 }
