@@ -17,7 +17,7 @@ class RouteHandlerFactory {
     // Non-static object call
     if(is_array($handler) AND !is_callable($handler)) {
       if(!class_exists($handler[0])) {
-        throw new RouteHandlerException("Class '{$handler[0]}' does not exist");
+        throw new RouteHandlerFactoryException("Class '{$handler[0]}' does not exist");
       }
 
       return new RouteHandler([$this->container->get($handler[0]), $handler[1]]);
