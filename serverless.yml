@@ -8,6 +8,7 @@ provider:
 
 plugins:
     - ./vendor/bref/bref
+    - serverless-lift
 
 functions:
     api:
@@ -18,6 +19,13 @@ functions:
             -   httpApi: '*'
         environment:
             PHP_INI_SCAN_DIR: /var/task/config/php
+
+
+constructs:
+    website:
+        type: server-side-website
+        assets:
+            '/public/*': public
 
 # Exclude files from deployment
 package:

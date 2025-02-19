@@ -3,14 +3,16 @@ version: "3.5"
 services:
   api:
     image: bref/php-82-fpm-dev:2
+    container_name: api-bref
     ports: ['8000:8000']
     volumes:
       - .:/var/task
     environment:
       HANDLER: htdocs/index.php
       # Assets will be served from this directory
-      DOCUMENT_ROOT: htdocs
+      DOCUMENT_ROOT: public
       PHP_INI_SCAN_DIR: /var/task/config/php
+
   db-mysql:
     image: mysql:8.4.4
     container_name: db-mysql

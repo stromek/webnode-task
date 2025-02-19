@@ -8,6 +8,9 @@
 - DocumentRoot musí mířit do /htdocs
 - Povolit .htaccess
 
+# PHP Dev
+- php -S localhost:8000 -t ./htdocs
+
 # AWS
 - serverless deploy
 
