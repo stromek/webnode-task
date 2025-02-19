@@ -11,3 +11,19 @@ services:
       # Assets will be served from this directory
       DOCUMENT_ROOT: htdocs
       PHP_INI_SCAN_DIR: /var/task/config/php
+  db-mysql:
+    image: mysql:8.4.4
+    container_name: db-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: webnode
+      MYSQL_PASSWORD: webnode
+      MYSQL_DATABASE: webnode
+    ports:
+      - "3310:3306"
+    volumes:
+      - db-mysql-data:/var/lib/mysql
+      - ./config/mysql:/etc/mysql/conf.d
+
+volumes:
+  db-mysql-data:
