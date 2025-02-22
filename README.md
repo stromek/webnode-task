@@ -1,3 +1,5 @@
+**Pokračování na https://github.com/stromek/strom-php-app**
+
 # Obecné požadavky
 - Vytvořit soubor /.env (z .env.example)
 - Do .evn není nutné zadávát údaje (jen musí existovat). Aplikace vrací falešná data a připojení k MySQL/Elasticu je jenom nachystané.
